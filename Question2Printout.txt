@@ -1,0 +1,5174 @@
+Question 2.1:
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(G | W):
+
+STEP 1: RESTRICT FACTORS:
+restrict w to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out a:
+multiply these factors together (they contain a):
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+to produce this product:
+a, e, b, g |
+----------------
+t, t, t, t | 0.30400000000000005
+t, t, t, f | 0.45599999999999996
+t, t, f, t | 0.03200000000000001
+t, t, f, f | 0.04800000000000001
+t, f, t, t | 0.28800000000000003
+t, f, t, f | 0.43200000000000005
+t, f, f, t | 0.016000000000000004
+t, f, f, f | 0.024000000000000004
+f, t, t, t | 0.0010000000000000002
+f, t, t, f | 0.019000000000000003
+f, t, f, t | 0.018000000000000002
+f, t, f, f | 0.342
+f, f, t, t | 0.0020000000000000005
+f, f, t, f | 0.038000000000000006
+f, f, f, t | 0.019000000000000003
+f, f, f, f | 0.361
+
+then sum out a to produce:
+e, b, g |
+-------------
+t, t, t | 0.30500000000000005
+t, t, f | 0.475
+t, f, t | 0.05000000000000001
+t, f, f | 0.39
+f, t, t | 0.29000000000000004
+f, t, f | 0.4700000000000001
+f, f, t | 0.035
+f, f, f | 0.385
+
+Summing out b:
+multiply these factors together (they contain b):
+b |
+-------
+t | 0.1
+f | 0.9
+
+e, b, g |
+-------------
+t, t, t | 0.30500000000000005
+t, t, f | 0.475
+t, f, t | 0.05000000000000001
+t, f, f | 0.39
+f, t, t | 0.29000000000000004
+f, t, f | 0.4700000000000001
+f, f, t | 0.035
+f, f, f | 0.385
+
+to produce this product:
+b, e, g |
+-------------
+t, t, t | 0.030500000000000006
+t, t, f | 0.0475
+t, f, t | 0.029000000000000005
+t, f, f | 0.047000000000000014
+f, t, t | 0.04500000000000001
+f, t, f | 0.35100000000000003
+f, f, t | 0.03150000000000001
+f, f, f | 0.34650000000000003
+
+then sum out b to produce:
+e, g |
+----------
+t, t | 0.07550000000000001
+t, f | 0.3985
+f, t | 0.06050000000000001
+f, f | 0.39350000000000007
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, g |
+----------
+t, t | 0.07550000000000001
+t, f | 0.3985
+f, t | 0.06050000000000001
+f, f | 0.39350000000000007
+
+to produce this product:
+e, g |
+----------
+t, t | 0.0037750000000000006
+t, f | 0.019925000000000002
+f, t | 0.05747500000000001
+f, f | 0.3738250000000001
+
+then sum out e to produce:
+g |
+-------
+t | 0.06125000000000001
+f | 0.3937500000000001
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+g |
+-------
+t | 0.06125000000000001
+f | 0.3937500000000001
+
+product is:
+g |
+-------
+t | 0.06125000000000001
+f | 0.3937500000000001
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+g |
+-------
+t | 0.1346153846153846
+f | 0.8653846153846154
+
+Therefore P(G | W) = 0.1346153846153846
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(G | ¬W):
+
+STEP 1: RESTRICT FACTORS:
+restrict w to be False in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.2
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out a:
+multiply these factors together (they contain a):
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+a |
+-------
+t | 0.2
+f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+to produce this product:
+a, e, b, g |
+----------------
+t, t, t, t | 0.07600000000000001
+t, t, t, f | 0.11399999999999999
+t, t, f, t | 0.008000000000000002
+t, t, f, f | 0.012000000000000002
+t, f, t, t | 0.07200000000000001
+t, f, t, f | 0.10800000000000001
+t, f, f, t | 0.004000000000000001
+t, f, f, f | 0.006000000000000001
+f, t, t, t | 0.0015
+f, t, t, f | 0.028499999999999998
+f, t, f, t | 0.027000000000000003
+f, t, f, f | 0.513
+f, f, t, t | 0.003
+f, f, t, f | 0.056999999999999995
+f, f, f, t | 0.028499999999999998
+f, f, f, f | 0.5415
+
+then sum out a to produce:
+e, b, g |
+-------------
+t, t, t | 0.07750000000000001
+t, t, f | 0.1425
+t, f, t | 0.035
+t, f, f | 0.525
+f, t, t | 0.07500000000000001
+f, t, f | 0.165
+f, f, t | 0.0325
+f, f, f | 0.5475
+
+Summing out b:
+multiply these factors together (they contain b):
+b |
+-------
+t | 0.1
+f | 0.9
+
+e, b, g |
+-------------
+t, t, t | 0.07750000000000001
+t, t, f | 0.1425
+t, f, t | 0.035
+t, f, f | 0.525
+f, t, t | 0.07500000000000001
+f, t, f | 0.165
+f, f, t | 0.0325
+f, f, f | 0.5475
+
+to produce this product:
+b, e, g |
+-------------
+t, t, t | 0.007750000000000002
+t, t, f | 0.014249999999999999
+t, f, t | 0.0075000000000000015
+t, f, f | 0.0165
+f, t, t | 0.03150000000000001
+f, t, f | 0.47250000000000003
+f, f, t | 0.02925
+f, f, f | 0.49275
+
+then sum out b to produce:
+e, g |
+----------
+t, t | 0.03925000000000001
+t, f | 0.48675
+f, t | 0.036750000000000005
+f, f | 0.50925
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, g |
+----------
+t, t | 0.03925000000000001
+t, f | 0.48675
+f, t | 0.036750000000000005
+f, f | 0.50925
+
+to produce this product:
+e, g |
+----------
+t, t | 0.0019625000000000003
+t, f | 0.0243375
+f, t | 0.034912500000000006
+f, f | 0.4837875
+
+then sum out e to produce:
+g |
+-------
+t | 0.036875000000000005
+f | 0.5081249999999999
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+g |
+-------
+t | 0.036875000000000005
+f | 0.5081249999999999
+
+product is:
+g |
+-------
+t | 0.036875000000000005
+f | 0.5081249999999999
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+g |
+-------
+t | 0.06766055045871562
+f | 0.9323394495412844
+
+Therefore P(G | ¬W) = 0.06766055045871562
+And we know from before P(G | W) = 0.1346153846153846
+Therefore P(G | W) != P(G | ¬W), as required.
+
+
+
+Question 2.2:
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(B | W ^ G ^ A):
+
+STEP 1: RESTRICT FACTORS:
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict w to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+restrict a to be True in:
+a |
+-------
+t | 0.8
+f | 0.4
+
+This factor has no variables. value: 0.8
+
+restrict g to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+a |
+-------
+t | 0.4
+f | 0.05
+
+restrict a to be True in:
+a |
+-------
+t | 0.4
+f | 0.05
+
+This factor has no variables. value: 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+to produce this product:
+e, b |
+----------
+t, t | 0.0475
+t, f | 0.005000000000000001
+f, t | 0.855
+f, f | 0.0475
+
+then sum out e to produce:
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+b |
+-------
+t | 0.1
+f | 0.9
+
+This factor has no variables. value: 0.8
+
+This factor has no variables. value: 0.4
+
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+product is:
+b |
+-------
+t | 0.028880000000000006
+f | 0.015120000000000003
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+b |
+-------
+t | 0.6563636363636364
+f | 0.34363636363636363
+
+Therefore P(B | W ^ G ^ A) = 0.6563636363636364
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(B | A):
+
+STEP 1: RESTRICT FACTORS:
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict a to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+w |
+-------
+t | 0.8
+f | 0.2
+
+restrict a to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+g |
+-------
+t | 0.4
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out w:
+multiply these factors together (they contain w):
+w |
+-------
+t | 0.8
+f | 0.2
+
+to produce this product:
+w |
+-------
+t | 0.8
+f | 0.2
+
+then sum out w to produce:
+This factor has no variables. value: 1.0
+
+Summing out g:
+multiply these factors together (they contain g):
+g |
+-------
+t | 0.4
+f | 0.6
+
+to produce this product:
+g |
+-------
+t | 0.4
+f | 0.6
+
+then sum out g to produce:
+This factor has no variables. value: 1.0
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+to produce this product:
+e, b |
+----------
+t, t | 0.0475
+t, f | 0.005000000000000001
+f, t | 0.855
+f, f | 0.0475
+
+then sum out e to produce:
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+b |
+-------
+t | 0.1
+f | 0.9
+
+This factor has no variables. value: 1.0
+
+This factor has no variables. value: 1.0
+
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+product is:
+b |
+-------
+t | 0.09025
+f | 0.04725000000000001
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+b |
+-------
+t | 0.6563636363636363
+f | 0.3436363636363637
+
+Therefore P(B | A) = 0.6563636363636363
+And we know from before P(B | W ^ G ^ A) = 0.6563636363636364
+Therefore P(B | W ^ G ^ A) == P(B | A), as required.
+
+
+
+Question 2.3:
+-------------------------------------------------------------------------
+P(B | W ^ G ^ A) was determined in the last problem.
+Because AND operations are commutitive, P(B | A ^ G ^ W) == P(B | W ^ G ^ A).
+So I am going to use the result from last problem and not calculate again it here.
+
+Therefore P(B | A ^ G ^ W) = 0.6563636363636364
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(B | W):
+
+STEP 1: RESTRICT FACTORS:
+restrict w to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out g:
+multiply these factors together (they contain g):
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+to produce this product:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+then sum out g to produce:
+a |
+-------
+t | 1.0
+f | 1.0
+
+Summing out a:
+multiply these factors together (they contain a):
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+a |
+-------
+t | 1.0
+f | 1.0
+
+to produce this product:
+a, e, b |
+-------------
+t, t, t | 0.76
+t, t, f | 0.08000000000000002
+t, f, t | 0.7200000000000001
+t, f, f | 0.04000000000000001
+f, t, t | 0.020000000000000004
+f, t, f | 0.36000000000000004
+f, f, t | 0.04000000000000001
+f, f, f | 0.38
+
+then sum out a to produce:
+e, b |
+----------
+t, t | 0.78
+t, f | 0.44000000000000006
+f, t | 0.7600000000000001
+f, f | 0.42000000000000004
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, b |
+----------
+t, t | 0.78
+t, f | 0.44000000000000006
+f, t | 0.7600000000000001
+f, f | 0.42000000000000004
+
+to produce this product:
+e, b |
+----------
+t, t | 0.03900000000000001
+t, f | 0.022000000000000006
+f, t | 0.7220000000000001
+f, f | 0.399
+
+then sum out e to produce:
+b |
+-------
+t | 0.7610000000000001
+f | 0.42100000000000004
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+b |
+-------
+t | 0.1
+f | 0.9
+
+b |
+-------
+t | 0.7610000000000001
+f | 0.42100000000000004
+
+product is:
+b |
+-------
+t | 0.07610000000000001
+f | 0.37890000000000007
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+b |
+-------
+t | 0.16725274725274725
+f | 0.8327472527472528
+
+Therefore P(B | W) = 0.16725274725274725
+And we know from before P(B | A ^ G ^ W) = 0.6563636363636364
+Therefore P(B | A ^ G ^ W) != P(B | W), as required.
+
+
+
+Question 2.4:
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(E | A ^ B):
+
+STEP 1: RESTRICT FACTORS:
+restrict b to be True in:
+b |
+-------
+t | 0.1
+f | 0.9
+
+This factor has no variables. value: 0.1
+
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict b to be True in:
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+e |
+-------
+t | 0.95
+f | 0.9
+
+restrict a to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+w |
+-------
+t | 0.8
+f | 0.2
+
+restrict a to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+g |
+-------
+t | 0.4
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out w:
+multiply these factors together (they contain w):
+w |
+-------
+t | 0.8
+f | 0.2
+
+to produce this product:
+w |
+-------
+t | 0.8
+f | 0.2
+
+then sum out w to produce:
+This factor has no variables. value: 1.0
+
+Summing out g:
+multiply these factors together (they contain g):
+g |
+-------
+t | 0.4
+f | 0.6
+
+to produce this product:
+g |
+-------
+t | 0.4
+f | 0.6
+
+then sum out g to produce:
+This factor has no variables. value: 1.0
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+This factor has no variables. value: 0.1
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+e |
+-------
+t | 0.95
+f | 0.9
+
+This factor has no variables. value: 1.0
+
+This factor has no variables. value: 1.0
+
+product is:
+e |
+-------
+t | 0.004750000000000001
+f | 0.0855
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+e |
+-------
+t | 0.052631578947368425
+f | 0.9473684210526315
+
+Therefore P(E | A ^ B) = 0.052631578947368425
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(E | A):
+
+STEP 1: RESTRICT FACTORS:
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict a to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+w |
+-------
+t | 0.8
+f | 0.2
+
+restrict a to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+g |
+-------
+t | 0.4
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out w:
+multiply these factors together (they contain w):
+w |
+-------
+t | 0.8
+f | 0.2
+
+to produce this product:
+w |
+-------
+t | 0.8
+f | 0.2
+
+then sum out w to produce:
+This factor has no variables. value: 1.0
+
+Summing out g:
+multiply these factors together (they contain g):
+g |
+-------
+t | 0.4
+f | 0.6
+
+to produce this product:
+g |
+-------
+t | 0.4
+f | 0.6
+
+then sum out g to produce:
+This factor has no variables. value: 1.0
+
+Summing out b:
+multiply these factors together (they contain b):
+b |
+-------
+t | 0.1
+f | 0.9
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+to produce this product:
+b, e |
+----------
+t, t | 0.095
+t, f | 0.09000000000000001
+f, t | 0.09000000000000001
+f, f | 0.045000000000000005
+
+then sum out b to produce:
+e |
+-------
+t | 0.185
+f | 0.135
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+e |
+-------
+t | 0.05
+f | 0.95
+
+This factor has no variables. value: 1.0
+
+This factor has no variables. value: 1.0
+
+e |
+-------
+t | 0.185
+f | 0.135
+
+product is:
+e |
+-------
+t | 0.00925
+f | 0.12825
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+e |
+-------
+t | 0.06727272727272726
+f | 0.9327272727272726
+
+Therefore P(E | A) = 0.06727272727272726
+And we know from before P(E | A ^ B) = 0.052631578947368425
+Therefore P(E | A ^ B) != P(E | A), as required.
+
+
+
+Question 2.1:
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(G | W):
+
+STEP 1: RESTRICT FACTORS:
+restrict w to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out a:
+multiply these factors together (they contain a):
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+to produce this product:
+a, e, b, g |
+----------------
+t, t, t, t | 0.30400000000000005
+t, t, t, f | 0.45599999999999996
+t, t, f, t | 0.03200000000000001
+t, t, f, f | 0.04800000000000001
+t, f, t, t | 0.28800000000000003
+t, f, t, f | 0.43200000000000005
+t, f, f, t | 0.016000000000000004
+t, f, f, f | 0.024000000000000004
+f, t, t, t | 0.0010000000000000002
+f, t, t, f | 0.019000000000000003
+f, t, f, t | 0.018000000000000002
+f, t, f, f | 0.342
+f, f, t, t | 0.0020000000000000005
+f, f, t, f | 0.038000000000000006
+f, f, f, t | 0.019000000000000003
+f, f, f, f | 0.361
+
+then sum out a to produce:
+e, b, g |
+-------------
+t, t, t | 0.30500000000000005
+t, t, f | 0.475
+t, f, t | 0.05000000000000001
+t, f, f | 0.39
+f, t, t | 0.29000000000000004
+f, t, f | 0.4700000000000001
+f, f, t | 0.035
+f, f, f | 0.385
+
+Summing out b:
+multiply these factors together (they contain b):
+b |
+-------
+t | 0.1
+f | 0.9
+
+e, b, g |
+-------------
+t, t, t | 0.30500000000000005
+t, t, f | 0.475
+t, f, t | 0.05000000000000001
+t, f, f | 0.39
+f, t, t | 0.29000000000000004
+f, t, f | 0.4700000000000001
+f, f, t | 0.035
+f, f, f | 0.385
+
+to produce this product:
+b, e, g |
+-------------
+t, t, t | 0.030500000000000006
+t, t, f | 0.0475
+t, f, t | 0.029000000000000005
+t, f, f | 0.047000000000000014
+f, t, t | 0.04500000000000001
+f, t, f | 0.35100000000000003
+f, f, t | 0.03150000000000001
+f, f, f | 0.34650000000000003
+
+then sum out b to produce:
+e, g |
+----------
+t, t | 0.07550000000000001
+t, f | 0.3985
+f, t | 0.06050000000000001
+f, f | 0.39350000000000007
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, g |
+----------
+t, t | 0.07550000000000001
+t, f | 0.3985
+f, t | 0.06050000000000001
+f, f | 0.39350000000000007
+
+to produce this product:
+e, g |
+----------
+t, t | 0.0037750000000000006
+t, f | 0.019925000000000002
+f, t | 0.05747500000000001
+f, f | 0.3738250000000001
+
+then sum out e to produce:
+g |
+-------
+t | 0.06125000000000001
+f | 0.3937500000000001
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+g |
+-------
+t | 0.06125000000000001
+f | 0.3937500000000001
+
+product is:
+g |
+-------
+t | 0.06125000000000001
+f | 0.3937500000000001
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+g |
+-------
+t | 0.1346153846153846
+f | 0.8653846153846154
+
+Therefore P(G | W) = 0.1346153846153846
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(G | ¬W):
+
+STEP 1: RESTRICT FACTORS:
+restrict w to be False in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.2
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out a:
+multiply these factors together (they contain a):
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+a |
+-------
+t | 0.2
+f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+to produce this product:
+a, e, b, g |
+----------------
+t, t, t, t | 0.07600000000000001
+t, t, t, f | 0.11399999999999999
+t, t, f, t | 0.008000000000000002
+t, t, f, f | 0.012000000000000002
+t, f, t, t | 0.07200000000000001
+t, f, t, f | 0.10800000000000001
+t, f, f, t | 0.004000000000000001
+t, f, f, f | 0.006000000000000001
+f, t, t, t | 0.0015
+f, t, t, f | 0.028499999999999998
+f, t, f, t | 0.027000000000000003
+f, t, f, f | 0.513
+f, f, t, t | 0.003
+f, f, t, f | 0.056999999999999995
+f, f, f, t | 0.028499999999999998
+f, f, f, f | 0.5415
+
+then sum out a to produce:
+e, b, g |
+-------------
+t, t, t | 0.07750000000000001
+t, t, f | 0.1425
+t, f, t | 0.035
+t, f, f | 0.525
+f, t, t | 0.07500000000000001
+f, t, f | 0.165
+f, f, t | 0.0325
+f, f, f | 0.5475
+
+Summing out b:
+multiply these factors together (they contain b):
+b |
+-------
+t | 0.1
+f | 0.9
+
+e, b, g |
+-------------
+t, t, t | 0.07750000000000001
+t, t, f | 0.1425
+t, f, t | 0.035
+t, f, f | 0.525
+f, t, t | 0.07500000000000001
+f, t, f | 0.165
+f, f, t | 0.0325
+f, f, f | 0.5475
+
+to produce this product:
+b, e, g |
+-------------
+t, t, t | 0.007750000000000002
+t, t, f | 0.014249999999999999
+t, f, t | 0.0075000000000000015
+t, f, f | 0.0165
+f, t, t | 0.03150000000000001
+f, t, f | 0.47250000000000003
+f, f, t | 0.02925
+f, f, f | 0.49275
+
+then sum out b to produce:
+e, g |
+----------
+t, t | 0.03925000000000001
+t, f | 0.48675
+f, t | 0.036750000000000005
+f, f | 0.50925
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, g |
+----------
+t, t | 0.03925000000000001
+t, f | 0.48675
+f, t | 0.036750000000000005
+f, f | 0.50925
+
+to produce this product:
+e, g |
+----------
+t, t | 0.0019625000000000003
+t, f | 0.0243375
+f, t | 0.034912500000000006
+f, f | 0.4837875
+
+then sum out e to produce:
+g |
+-------
+t | 0.036875000000000005
+f | 0.5081249999999999
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+g |
+-------
+t | 0.036875000000000005
+f | 0.5081249999999999
+
+product is:
+g |
+-------
+t | 0.036875000000000005
+f | 0.5081249999999999
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+g |
+-------
+t | 0.06766055045871562
+f | 0.9323394495412844
+
+Therefore P(G | ¬W) = 0.06766055045871562
+And we know from before P(G | W) = 0.1346153846153846
+Therefore P(G | W) != P(G | ¬W), as required.
+
+
+
+Question 2.2:
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(B | W ^ G ^ A):
+
+STEP 1: RESTRICT FACTORS:
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict w to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+restrict a to be True in:
+a |
+-------
+t | 0.8
+f | 0.4
+
+This factor has no variables. value: 0.8
+
+restrict g to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+a |
+-------
+t | 0.4
+f | 0.05
+
+restrict a to be True in:
+a |
+-------
+t | 0.4
+f | 0.05
+
+This factor has no variables. value: 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+to produce this product:
+e, b |
+----------
+t, t | 0.0475
+t, f | 0.005000000000000001
+f, t | 0.855
+f, f | 0.0475
+
+then sum out e to produce:
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+b |
+-------
+t | 0.1
+f | 0.9
+
+This factor has no variables. value: 0.8
+
+This factor has no variables. value: 0.4
+
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+product is:
+b |
+-------
+t | 0.028880000000000006
+f | 0.015120000000000003
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+b |
+-------
+t | 0.6563636363636364
+f | 0.34363636363636363
+
+Therefore P(B | W ^ G ^ A) = 0.6563636363636364
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(B | A):
+
+STEP 1: RESTRICT FACTORS:
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict a to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+w |
+-------
+t | 0.8
+f | 0.2
+
+restrict a to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+g |
+-------
+t | 0.4
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out w:
+multiply these factors together (they contain w):
+w |
+-------
+t | 0.8
+f | 0.2
+
+to produce this product:
+w |
+-------
+t | 0.8
+f | 0.2
+
+then sum out w to produce:
+This factor has no variables. value: 1.0
+
+Summing out g:
+multiply these factors together (they contain g):
+g |
+-------
+t | 0.4
+f | 0.6
+
+to produce this product:
+g |
+-------
+t | 0.4
+f | 0.6
+
+then sum out g to produce:
+This factor has no variables. value: 1.0
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+to produce this product:
+e, b |
+----------
+t, t | 0.0475
+t, f | 0.005000000000000001
+f, t | 0.855
+f, f | 0.0475
+
+then sum out e to produce:
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+b |
+-------
+t | 0.1
+f | 0.9
+
+This factor has no variables. value: 1.0
+
+This factor has no variables. value: 1.0
+
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+product is:
+b |
+-------
+t | 0.09025
+f | 0.04725000000000001
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+b |
+-------
+t | 0.6563636363636363
+f | 0.3436363636363637
+
+Therefore P(B | A) = 0.6563636363636363
+And we know from before P(B | W ^ G ^ A) = 0.6563636363636364
+Therefore P(B | W ^ G ^ A) == P(B | A), as required.
+
+
+
+Question 2.3:
+-------------------------------------------------------------------------
+P(B | W ^ G ^ A) was determined in the last problem.
+Because AND operations are commutitive, P(B | A ^ G ^ W) == P(B | W ^ G ^ A).
+So I am going to use the result from last problem and not calculate again it here.
+
+Therefore P(B | A ^ G ^ W) = 0.6563636363636364
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(B | W):
+
+STEP 1: RESTRICT FACTORS:
+restrict w to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out g:
+multiply these factors together (they contain g):
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+to produce this product:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+then sum out g to produce:
+a |
+-------
+t | 1.0
+f | 1.0
+
+Summing out a:
+multiply these factors together (they contain a):
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+a |
+-------
+t | 1.0
+f | 1.0
+
+to produce this product:
+a, e, b |
+-------------
+t, t, t | 0.76
+t, t, f | 0.08000000000000002
+t, f, t | 0.7200000000000001
+t, f, f | 0.04000000000000001
+f, t, t | 0.020000000000000004
+f, t, f | 0.36000000000000004
+f, f, t | 0.04000000000000001
+f, f, f | 0.38
+
+then sum out a to produce:
+e, b |
+----------
+t, t | 0.78
+t, f | 0.44000000000000006
+f, t | 0.7600000000000001
+f, f | 0.42000000000000004
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, b |
+----------
+t, t | 0.78
+t, f | 0.44000000000000006
+f, t | 0.7600000000000001
+f, f | 0.42000000000000004
+
+to produce this product:
+e, b |
+----------
+t, t | 0.03900000000000001
+t, f | 0.022000000000000006
+f, t | 0.7220000000000001
+f, f | 0.399
+
+then sum out e to produce:
+b |
+-------
+t | 0.7610000000000001
+f | 0.42100000000000004
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+b |
+-------
+t | 0.1
+f | 0.9
+
+b |
+-------
+t | 0.7610000000000001
+f | 0.42100000000000004
+
+product is:
+b |
+-------
+t | 0.07610000000000001
+f | 0.37890000000000007
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+b |
+-------
+t | 0.16725274725274725
+f | 0.8327472527472528
+
+Therefore P(B | W) = 0.16725274725274725
+And we know from before P(B | A ^ G ^ W) = 0.6563636363636364
+Therefore P(B | A ^ G ^ W) != P(B | W), as required.
+
+
+
+Question 2.4:
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(E | A ^ B):
+
+STEP 1: RESTRICT FACTORS:
+restrict b to be True in:
+b |
+-------
+t | 0.1
+f | 0.9
+
+This factor has no variables. value: 0.1
+
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict b to be True in:
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+e |
+-------
+t | 0.95
+f | 0.9
+
+restrict a to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+w |
+-------
+t | 0.8
+f | 0.2
+
+restrict a to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+g |
+-------
+t | 0.4
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out w:
+multiply these factors together (they contain w):
+w |
+-------
+t | 0.8
+f | 0.2
+
+to produce this product:
+w |
+-------
+t | 0.8
+f | 0.2
+
+then sum out w to produce:
+This factor has no variables. value: 1.0
+
+Summing out g:
+multiply these factors together (they contain g):
+g |
+-------
+t | 0.4
+f | 0.6
+
+to produce this product:
+g |
+-------
+t | 0.4
+f | 0.6
+
+then sum out g to produce:
+This factor has no variables. value: 1.0
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+This factor has no variables. value: 0.1
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+e |
+-------
+t | 0.95
+f | 0.9
+
+This factor has no variables. value: 1.0
+
+This factor has no variables. value: 1.0
+
+product is:
+e |
+-------
+t | 0.004750000000000001
+f | 0.0855
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+e |
+-------
+t | 0.052631578947368425
+f | 0.9473684210526315
+
+Therefore P(E | A ^ B) = 0.052631578947368425
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(E | A):
+
+STEP 1: RESTRICT FACTORS:
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict a to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+w |
+-------
+t | 0.8
+f | 0.2
+
+restrict a to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+g |
+-------
+t | 0.4
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out w:
+multiply these factors together (they contain w):
+w |
+-------
+t | 0.8
+f | 0.2
+
+to produce this product:
+w |
+-------
+t | 0.8
+f | 0.2
+
+then sum out w to produce:
+This factor has no variables. value: 1.0
+
+Summing out g:
+multiply these factors together (they contain g):
+g |
+-------
+t | 0.4
+f | 0.6
+
+to produce this product:
+g |
+-------
+t | 0.4
+f | 0.6
+
+then sum out g to produce:
+This factor has no variables. value: 1.0
+
+Summing out b:
+multiply these factors together (they contain b):
+b |
+-------
+t | 0.1
+f | 0.9
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+to produce this product:
+b, e |
+----------
+t, t | 0.095
+t, f | 0.09000000000000001
+f, t | 0.09000000000000001
+f, f | 0.045000000000000005
+
+then sum out b to produce:
+e |
+-------
+t | 0.185
+f | 0.135
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+e |
+-------
+t | 0.05
+f | 0.95
+
+This factor has no variables. value: 1.0
+
+This factor has no variables. value: 1.0
+
+e |
+-------
+t | 0.185
+f | 0.135
+
+product is:
+e |
+-------
+t | 0.00925
+f | 0.12825
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+e |
+-------
+t | 0.06727272727272726
+f | 0.9327272727272726
+
+Therefore P(E | A) = 0.06727272727272726
+And we know from before P(E | A ^ B) = 0.052631578947368425
+Therefore P(E | A ^ B) != P(E | A), as required.
+
+
+
+Question 2.1:
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(G | W):
+
+STEP 1: RESTRICT FACTORS:
+restrict w to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out a:
+multiply these factors together (they contain a):
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+to produce this product:
+a, e, b, g |
+----------------
+t, t, t, t | 0.30400000000000005
+t, t, t, f | 0.45599999999999996
+t, t, f, t | 0.03200000000000001
+t, t, f, f | 0.04800000000000001
+t, f, t, t | 0.28800000000000003
+t, f, t, f | 0.43200000000000005
+t, f, f, t | 0.016000000000000004
+t, f, f, f | 0.024000000000000004
+f, t, t, t | 0.0010000000000000002
+f, t, t, f | 0.019000000000000003
+f, t, f, t | 0.018000000000000002
+f, t, f, f | 0.342
+f, f, t, t | 0.0020000000000000005
+f, f, t, f | 0.038000000000000006
+f, f, f, t | 0.019000000000000003
+f, f, f, f | 0.361
+
+then sum out a to produce:
+e, b, g |
+-------------
+t, t, t | 0.30500000000000005
+t, t, f | 0.475
+t, f, t | 0.05000000000000001
+t, f, f | 0.39
+f, t, t | 0.29000000000000004
+f, t, f | 0.4700000000000001
+f, f, t | 0.035
+f, f, f | 0.385
+
+Summing out b:
+multiply these factors together (they contain b):
+b |
+-------
+t | 0.1
+f | 0.9
+
+e, b, g |
+-------------
+t, t, t | 0.30500000000000005
+t, t, f | 0.475
+t, f, t | 0.05000000000000001
+t, f, f | 0.39
+f, t, t | 0.29000000000000004
+f, t, f | 0.4700000000000001
+f, f, t | 0.035
+f, f, f | 0.385
+
+to produce this product:
+b, e, g |
+-------------
+t, t, t | 0.030500000000000006
+t, t, f | 0.0475
+t, f, t | 0.029000000000000005
+t, f, f | 0.047000000000000014
+f, t, t | 0.04500000000000001
+f, t, f | 0.35100000000000003
+f, f, t | 0.03150000000000001
+f, f, f | 0.34650000000000003
+
+then sum out b to produce:
+e, g |
+----------
+t, t | 0.07550000000000001
+t, f | 0.3985
+f, t | 0.06050000000000001
+f, f | 0.39350000000000007
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, g |
+----------
+t, t | 0.07550000000000001
+t, f | 0.3985
+f, t | 0.06050000000000001
+f, f | 0.39350000000000007
+
+to produce this product:
+e, g |
+----------
+t, t | 0.0037750000000000006
+t, f | 0.019925000000000002
+f, t | 0.05747500000000001
+f, f | 0.3738250000000001
+
+then sum out e to produce:
+g |
+-------
+t | 0.06125000000000001
+f | 0.3937500000000001
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+g |
+-------
+t | 0.06125000000000001
+f | 0.3937500000000001
+
+product is:
+g |
+-------
+t | 0.06125000000000001
+f | 0.3937500000000001
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+g |
+-------
+t | 0.1346153846153846
+f | 0.8653846153846154
+
+Therefore P(G | W) = 0.1346153846153846
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(G | ¬W):
+
+STEP 1: RESTRICT FACTORS:
+restrict w to be False in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.2
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out a:
+multiply these factors together (they contain a):
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+a |
+-------
+t | 0.2
+f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+to produce this product:
+a, e, b, g |
+----------------
+t, t, t, t | 0.07600000000000001
+t, t, t, f | 0.11399999999999999
+t, t, f, t | 0.008000000000000002
+t, t, f, f | 0.012000000000000002
+t, f, t, t | 0.07200000000000001
+t, f, t, f | 0.10800000000000001
+t, f, f, t | 0.004000000000000001
+t, f, f, f | 0.006000000000000001
+f, t, t, t | 0.0015
+f, t, t, f | 0.028499999999999998
+f, t, f, t | 0.027000000000000003
+f, t, f, f | 0.513
+f, f, t, t | 0.003
+f, f, t, f | 0.056999999999999995
+f, f, f, t | 0.028499999999999998
+f, f, f, f | 0.5415
+
+then sum out a to produce:
+e, b, g |
+-------------
+t, t, t | 0.07750000000000001
+t, t, f | 0.1425
+t, f, t | 0.035
+t, f, f | 0.525
+f, t, t | 0.07500000000000001
+f, t, f | 0.165
+f, f, t | 0.0325
+f, f, f | 0.5475
+
+Summing out b:
+multiply these factors together (they contain b):
+b |
+-------
+t | 0.1
+f | 0.9
+
+e, b, g |
+-------------
+t, t, t | 0.07750000000000001
+t, t, f | 0.1425
+t, f, t | 0.035
+t, f, f | 0.525
+f, t, t | 0.07500000000000001
+f, t, f | 0.165
+f, f, t | 0.0325
+f, f, f | 0.5475
+
+to produce this product:
+b, e, g |
+-------------
+t, t, t | 0.007750000000000002
+t, t, f | 0.014249999999999999
+t, f, t | 0.0075000000000000015
+t, f, f | 0.0165
+f, t, t | 0.03150000000000001
+f, t, f | 0.47250000000000003
+f, f, t | 0.02925
+f, f, f | 0.49275
+
+then sum out b to produce:
+e, g |
+----------
+t, t | 0.03925000000000001
+t, f | 0.48675
+f, t | 0.036750000000000005
+f, f | 0.50925
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, g |
+----------
+t, t | 0.03925000000000001
+t, f | 0.48675
+f, t | 0.036750000000000005
+f, f | 0.50925
+
+to produce this product:
+e, g |
+----------
+t, t | 0.0019625000000000003
+t, f | 0.0243375
+f, t | 0.034912500000000006
+f, f | 0.4837875
+
+then sum out e to produce:
+g |
+-------
+t | 0.036875000000000005
+f | 0.5081249999999999
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+g |
+-------
+t | 0.036875000000000005
+f | 0.5081249999999999
+
+product is:
+g |
+-------
+t | 0.036875000000000005
+f | 0.5081249999999999
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+g |
+-------
+t | 0.06766055045871562
+f | 0.9323394495412844
+
+Therefore P(G | ¬W) = 0.06766055045871562
+And we know from before P(G | W) = 0.1346153846153846
+Therefore P(G | W) != P(G | ¬W), as required.
+
+
+
+Question 2.2:
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(B | W ^ G ^ A):
+
+STEP 1: RESTRICT FACTORS:
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict w to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+restrict a to be True in:
+a |
+-------
+t | 0.8
+f | 0.4
+
+This factor has no variables. value: 0.8
+
+restrict g to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+a |
+-------
+t | 0.4
+f | 0.05
+
+restrict a to be True in:
+a |
+-------
+t | 0.4
+f | 0.05
+
+This factor has no variables. value: 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+to produce this product:
+e, b |
+----------
+t, t | 0.0475
+t, f | 0.005000000000000001
+f, t | 0.855
+f, f | 0.0475
+
+then sum out e to produce:
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+b |
+-------
+t | 0.1
+f | 0.9
+
+This factor has no variables. value: 0.8
+
+This factor has no variables. value: 0.4
+
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+product is:
+b |
+-------
+t | 0.028880000000000006
+f | 0.015120000000000003
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+b |
+-------
+t | 0.6563636363636364
+f | 0.34363636363636363
+
+Therefore P(B | W ^ G ^ A) = 0.6563636363636364
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(B | A):
+
+STEP 1: RESTRICT FACTORS:
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict a to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+w |
+-------
+t | 0.8
+f | 0.2
+
+restrict a to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+g |
+-------
+t | 0.4
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out w:
+multiply these factors together (they contain w):
+w |
+-------
+t | 0.8
+f | 0.2
+
+to produce this product:
+w |
+-------
+t | 0.8
+f | 0.2
+
+then sum out w to produce:
+This factor has no variables. value: 1.0
+
+Summing out g:
+multiply these factors together (they contain g):
+g |
+-------
+t | 0.4
+f | 0.6
+
+to produce this product:
+g |
+-------
+t | 0.4
+f | 0.6
+
+then sum out g to produce:
+This factor has no variables. value: 1.0
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+to produce this product:
+e, b |
+----------
+t, t | 0.0475
+t, f | 0.005000000000000001
+f, t | 0.855
+f, f | 0.0475
+
+then sum out e to produce:
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+b |
+-------
+t | 0.1
+f | 0.9
+
+This factor has no variables. value: 1.0
+
+This factor has no variables. value: 1.0
+
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+product is:
+b |
+-------
+t | 0.09025
+f | 0.04725000000000001
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+b |
+-------
+t | 0.6563636363636363
+f | 0.3436363636363637
+
+Therefore P(B | A) = 0.6563636363636363
+And we know from before P(B | W ^ G ^ A) = 0.6563636363636364
+Therefore P(B | W ^ G ^ A) == P(B | A), as required.
+
+
+
+Question 2.3:
+-------------------------------------------------------------------------
+P(B | W ^ G ^ A) was determined in the last problem.
+Because AND operations are commutitive, P(B | A ^ G ^ W) == P(B | W ^ G ^ A).
+So I am going to use the result from last problem and not calculate again it here.
+
+Therefore P(B | A ^ G ^ W) = 0.6563636363636364
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(B | W):
+
+STEP 1: RESTRICT FACTORS:
+restrict w to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out g:
+multiply these factors together (they contain g):
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+to produce this product:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+then sum out g to produce:
+a |
+-------
+t | 1.0
+f | 1.0
+
+Summing out a:
+multiply these factors together (they contain a):
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+a |
+-------
+t | 1.0
+f | 1.0
+
+to produce this product:
+a, e, b |
+-------------
+t, t, t | 0.76
+t, t, f | 0.08000000000000002
+t, f, t | 0.7200000000000001
+t, f, f | 0.04000000000000001
+f, t, t | 0.020000000000000004
+f, t, f | 0.36000000000000004
+f, f, t | 0.04000000000000001
+f, f, f | 0.38
+
+then sum out a to produce:
+e, b |
+----------
+t, t | 0.78
+t, f | 0.44000000000000006
+f, t | 0.7600000000000001
+f, f | 0.42000000000000004
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, b |
+----------
+t, t | 0.78
+t, f | 0.44000000000000006
+f, t | 0.7600000000000001
+f, f | 0.42000000000000004
+
+to produce this product:
+e, b |
+----------
+t, t | 0.03900000000000001
+t, f | 0.022000000000000006
+f, t | 0.7220000000000001
+f, f | 0.399
+
+then sum out e to produce:
+b |
+-------
+t | 0.7610000000000001
+f | 0.42100000000000004
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+b |
+-------
+t | 0.1
+f | 0.9
+
+b |
+-------
+t | 0.7610000000000001
+f | 0.42100000000000004
+
+product is:
+b |
+-------
+t | 0.07610000000000001
+f | 0.37890000000000007
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+b |
+-------
+t | 0.16725274725274725
+f | 0.8327472527472528
+
+Therefore P(B | W) = 0.16725274725274725
+And we know from before P(B | A ^ G ^ W) = 0.6563636363636364
+Therefore P(B | A ^ G ^ W) != P(B | W), as required.
+
+
+
+Question 2.4:
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(E | A ^ B):
+
+STEP 1: RESTRICT FACTORS:
+restrict b to be True in:
+b |
+-------
+t | 0.1
+f | 0.9
+
+This factor has no variables. value: 0.1
+
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict b to be True in:
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+e |
+-------
+t | 0.95
+f | 0.9
+
+restrict a to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+w |
+-------
+t | 0.8
+f | 0.2
+
+restrict a to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+g |
+-------
+t | 0.4
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out w:
+multiply these factors together (they contain w):
+w |
+-------
+t | 0.8
+f | 0.2
+
+to produce this product:
+w |
+-------
+t | 0.8
+f | 0.2
+
+then sum out w to produce:
+This factor has no variables. value: 1.0
+
+Summing out g:
+multiply these factors together (they contain g):
+g |
+-------
+t | 0.4
+f | 0.6
+
+to produce this product:
+g |
+-------
+t | 0.4
+f | 0.6
+
+then sum out g to produce:
+This factor has no variables. value: 1.0
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+This factor has no variables. value: 0.1
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+e |
+-------
+t | 0.95
+f | 0.9
+
+This factor has no variables. value: 1.0
+
+This factor has no variables. value: 1.0
+
+product is:
+e |
+-------
+t | 0.004750000000000001
+f | 0.0855
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+e |
+-------
+t | 0.052631578947368425
+f | 0.9473684210526315
+
+Therefore P(E | A ^ B) = 0.052631578947368425
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(E | A):
+
+STEP 1: RESTRICT FACTORS:
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict a to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+w |
+-------
+t | 0.8
+f | 0.2
+
+restrict a to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+g |
+-------
+t | 0.4
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out w:
+multiply these factors together (they contain w):
+w |
+-------
+t | 0.8
+f | 0.2
+
+to produce this product:
+w |
+-------
+t | 0.8
+f | 0.2
+
+then sum out w to produce:
+This factor has no variables. value: 1.0
+
+Summing out g:
+multiply these factors together (they contain g):
+g |
+-------
+t | 0.4
+f | 0.6
+
+to produce this product:
+g |
+-------
+t | 0.4
+f | 0.6
+
+then sum out g to produce:
+This factor has no variables. value: 1.0
+
+Summing out b:
+multiply these factors together (they contain b):
+b |
+-------
+t | 0.1
+f | 0.9
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+to produce this product:
+b, e |
+----------
+t, t | 0.095
+t, f | 0.09000000000000001
+f, t | 0.09000000000000001
+f, f | 0.045000000000000005
+
+then sum out b to produce:
+e |
+-------
+t | 0.185
+f | 0.135
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+e |
+-------
+t | 0.05
+f | 0.95
+
+This factor has no variables. value: 1.0
+
+This factor has no variables. value: 1.0
+
+e |
+-------
+t | 0.185
+f | 0.135
+
+product is:
+e |
+-------
+t | 0.00925
+f | 0.12825
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+e |
+-------
+t | 0.06727272727272726
+f | 0.9327272727272726
+
+Therefore P(E | A) = 0.06727272727272726
+And we know from before P(E | A ^ B) = 0.052631578947368425
+Therefore P(E | A ^ B) != P(E | A), as required.
+
+
+
+Question 2.1:
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(G | W):
+
+STEP 1: RESTRICT FACTORS:
+restrict w to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out a:
+multiply these factors together (they contain a):
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+to produce this product:
+a, e, b, g |
+----------------
+t, t, t, t | 0.30400000000000005
+t, t, t, f | 0.45599999999999996
+t, t, f, t | 0.03200000000000001
+t, t, f, f | 0.04800000000000001
+t, f, t, t | 0.28800000000000003
+t, f, t, f | 0.43200000000000005
+t, f, f, t | 0.016000000000000004
+t, f, f, f | 0.024000000000000004
+f, t, t, t | 0.0010000000000000002
+f, t, t, f | 0.019000000000000003
+f, t, f, t | 0.018000000000000002
+f, t, f, f | 0.342
+f, f, t, t | 0.0020000000000000005
+f, f, t, f | 0.038000000000000006
+f, f, f, t | 0.019000000000000003
+f, f, f, f | 0.361
+
+then sum out a to produce:
+e, b, g |
+-------------
+t, t, t | 0.30500000000000005
+t, t, f | 0.475
+t, f, t | 0.05000000000000001
+t, f, f | 0.39
+f, t, t | 0.29000000000000004
+f, t, f | 0.4700000000000001
+f, f, t | 0.035
+f, f, f | 0.385
+
+Summing out b:
+multiply these factors together (they contain b):
+b |
+-------
+t | 0.1
+f | 0.9
+
+e, b, g |
+-------------
+t, t, t | 0.30500000000000005
+t, t, f | 0.475
+t, f, t | 0.05000000000000001
+t, f, f | 0.39
+f, t, t | 0.29000000000000004
+f, t, f | 0.4700000000000001
+f, f, t | 0.035
+f, f, f | 0.385
+
+to produce this product:
+b, e, g |
+-------------
+t, t, t | 0.030500000000000006
+t, t, f | 0.0475
+t, f, t | 0.029000000000000005
+t, f, f | 0.047000000000000014
+f, t, t | 0.04500000000000001
+f, t, f | 0.35100000000000003
+f, f, t | 0.03150000000000001
+f, f, f | 0.34650000000000003
+
+then sum out b to produce:
+e, g |
+----------
+t, t | 0.07550000000000001
+t, f | 0.3985
+f, t | 0.06050000000000001
+f, f | 0.39350000000000007
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, g |
+----------
+t, t | 0.07550000000000001
+t, f | 0.3985
+f, t | 0.06050000000000001
+f, f | 0.39350000000000007
+
+to produce this product:
+e, g |
+----------
+t, t | 0.0037750000000000006
+t, f | 0.019925000000000002
+f, t | 0.05747500000000001
+f, f | 0.3738250000000001
+
+then sum out e to produce:
+g |
+-------
+t | 0.06125000000000001
+f | 0.3937500000000001
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+g |
+-------
+t | 0.06125000000000001
+f | 0.3937500000000001
+
+product is:
+g |
+-------
+t | 0.06125000000000001
+f | 0.3937500000000001
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+g |
+-------
+t | 0.1346153846153846
+f | 0.8653846153846154
+
+Therefore P(G | W) = 0.1346153846153846
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(G | ¬W):
+
+STEP 1: RESTRICT FACTORS:
+restrict w to be False in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.2
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out a:
+multiply these factors together (they contain a):
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+a |
+-------
+t | 0.2
+f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+to produce this product:
+a, e, b, g |
+----------------
+t, t, t, t | 0.07600000000000001
+t, t, t, f | 0.11399999999999999
+t, t, f, t | 0.008000000000000002
+t, t, f, f | 0.012000000000000002
+t, f, t, t | 0.07200000000000001
+t, f, t, f | 0.10800000000000001
+t, f, f, t | 0.004000000000000001
+t, f, f, f | 0.006000000000000001
+f, t, t, t | 0.0015
+f, t, t, f | 0.028499999999999998
+f, t, f, t | 0.027000000000000003
+f, t, f, f | 0.513
+f, f, t, t | 0.003
+f, f, t, f | 0.056999999999999995
+f, f, f, t | 0.028499999999999998
+f, f, f, f | 0.5415
+
+then sum out a to produce:
+e, b, g |
+-------------
+t, t, t | 0.07750000000000001
+t, t, f | 0.1425
+t, f, t | 0.035
+t, f, f | 0.525
+f, t, t | 0.07500000000000001
+f, t, f | 0.165
+f, f, t | 0.0325
+f, f, f | 0.5475
+
+Summing out b:
+multiply these factors together (they contain b):
+b |
+-------
+t | 0.1
+f | 0.9
+
+e, b, g |
+-------------
+t, t, t | 0.07750000000000001
+t, t, f | 0.1425
+t, f, t | 0.035
+t, f, f | 0.525
+f, t, t | 0.07500000000000001
+f, t, f | 0.165
+f, f, t | 0.0325
+f, f, f | 0.5475
+
+to produce this product:
+b, e, g |
+-------------
+t, t, t | 0.007750000000000002
+t, t, f | 0.014249999999999999
+t, f, t | 0.0075000000000000015
+t, f, f | 0.0165
+f, t, t | 0.03150000000000001
+f, t, f | 0.47250000000000003
+f, f, t | 0.02925
+f, f, f | 0.49275
+
+then sum out b to produce:
+e, g |
+----------
+t, t | 0.03925000000000001
+t, f | 0.48675
+f, t | 0.036750000000000005
+f, f | 0.50925
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, g |
+----------
+t, t | 0.03925000000000001
+t, f | 0.48675
+f, t | 0.036750000000000005
+f, f | 0.50925
+
+to produce this product:
+e, g |
+----------
+t, t | 0.0019625000000000003
+t, f | 0.0243375
+f, t | 0.034912500000000006
+f, f | 0.4837875
+
+then sum out e to produce:
+g |
+-------
+t | 0.036875000000000005
+f | 0.5081249999999999
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+g |
+-------
+t | 0.036875000000000005
+f | 0.5081249999999999
+
+product is:
+g |
+-------
+t | 0.036875000000000005
+f | 0.5081249999999999
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+g |
+-------
+t | 0.06766055045871562
+f | 0.9323394495412844
+
+Therefore P(G | ¬W) = 0.06766055045871562
+And we know from before P(G | W) = 0.1346153846153846
+Therefore P(G | W) != P(G | ¬W), as required.
+
+
+
+Question 2.2:
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(B | W ^ G ^ A):
+
+STEP 1: RESTRICT FACTORS:
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict w to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+restrict a to be True in:
+a |
+-------
+t | 0.8
+f | 0.4
+
+This factor has no variables. value: 0.8
+
+restrict g to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+a |
+-------
+t | 0.4
+f | 0.05
+
+restrict a to be True in:
+a |
+-------
+t | 0.4
+f | 0.05
+
+This factor has no variables. value: 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+to produce this product:
+e, b |
+----------
+t, t | 0.0475
+t, f | 0.005000000000000001
+f, t | 0.855
+f, f | 0.0475
+
+then sum out e to produce:
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+b |
+-------
+t | 0.1
+f | 0.9
+
+This factor has no variables. value: 0.8
+
+This factor has no variables. value: 0.4
+
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+product is:
+b |
+-------
+t | 0.028880000000000006
+f | 0.015120000000000003
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+b |
+-------
+t | 0.6563636363636364
+f | 0.34363636363636363
+
+Therefore P(B | W ^ G ^ A) = 0.6563636363636364
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(B | A):
+
+STEP 1: RESTRICT FACTORS:
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict a to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+w |
+-------
+t | 0.8
+f | 0.2
+
+restrict a to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+g |
+-------
+t | 0.4
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out w:
+multiply these factors together (they contain w):
+w |
+-------
+t | 0.8
+f | 0.2
+
+to produce this product:
+w |
+-------
+t | 0.8
+f | 0.2
+
+then sum out w to produce:
+This factor has no variables. value: 1.0
+
+Summing out g:
+multiply these factors together (they contain g):
+g |
+-------
+t | 0.4
+f | 0.6
+
+to produce this product:
+g |
+-------
+t | 0.4
+f | 0.6
+
+then sum out g to produce:
+This factor has no variables. value: 1.0
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+to produce this product:
+e, b |
+----------
+t, t | 0.0475
+t, f | 0.005000000000000001
+f, t | 0.855
+f, f | 0.0475
+
+then sum out e to produce:
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+b |
+-------
+t | 0.1
+f | 0.9
+
+This factor has no variables. value: 1.0
+
+This factor has no variables. value: 1.0
+
+b |
+-------
+t | 0.9025
+f | 0.052500000000000005
+
+product is:
+b |
+-------
+t | 0.09025
+f | 0.04725000000000001
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+b |
+-------
+t | 0.6563636363636363
+f | 0.3436363636363637
+
+Therefore P(B | A) = 0.6563636363636363
+And we know from before P(B | W ^ G ^ A) = 0.6563636363636364
+Therefore P(B | W ^ G ^ A) == P(B | A), as required.
+
+
+
+Question 2.3:
+-------------------------------------------------------------------------
+P(B | W ^ G ^ A) was determined in the last problem.
+Because AND operations are commutitive, P(B | A ^ G ^ W) == P(B | W ^ G ^ A).
+So I am going to use the result from last problem and not calculate again it here.
+
+Therefore P(B | A ^ G ^ W) = 0.6563636363636364
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(B | W):
+
+STEP 1: RESTRICT FACTORS:
+restrict w to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out g:
+multiply these factors together (they contain g):
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+to produce this product:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+then sum out g to produce:
+a |
+-------
+t | 1.0
+f | 1.0
+
+Summing out a:
+multiply these factors together (they contain a):
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+a |
+-------
+t | 0.8
+f | 0.4
+
+a |
+-------
+t | 1.0
+f | 1.0
+
+to produce this product:
+a, e, b |
+-------------
+t, t, t | 0.76
+t, t, f | 0.08000000000000002
+t, f, t | 0.7200000000000001
+t, f, f | 0.04000000000000001
+f, t, t | 0.020000000000000004
+f, t, f | 0.36000000000000004
+f, f, t | 0.04000000000000001
+f, f, f | 0.38
+
+then sum out a to produce:
+e, b |
+----------
+t, t | 0.78
+t, f | 0.44000000000000006
+f, t | 0.7600000000000001
+f, f | 0.42000000000000004
+
+Summing out e:
+multiply these factors together (they contain e):
+e |
+-------
+t | 0.05
+f | 0.95
+
+e, b |
+----------
+t, t | 0.78
+t, f | 0.44000000000000006
+f, t | 0.7600000000000001
+f, f | 0.42000000000000004
+
+to produce this product:
+e, b |
+----------
+t, t | 0.03900000000000001
+t, f | 0.022000000000000006
+f, t | 0.7220000000000001
+f, f | 0.399
+
+then sum out e to produce:
+b |
+-------
+t | 0.7610000000000001
+f | 0.42100000000000004
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+b |
+-------
+t | 0.1
+f | 0.9
+
+b |
+-------
+t | 0.7610000000000001
+f | 0.42100000000000004
+
+product is:
+b |
+-------
+t | 0.07610000000000001
+f | 0.37890000000000007
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+b |
+-------
+t | 0.16725274725274725
+f | 0.8327472527472528
+
+Therefore P(B | W) = 0.16725274725274725
+And we know from before P(B | A ^ G ^ W) = 0.6563636363636364
+Therefore P(B | A ^ G ^ W) != P(B | W), as required.
+
+
+
+Question 2.4:
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(E | A ^ B):
+
+STEP 1: RESTRICT FACTORS:
+restrict b to be True in:
+b |
+-------
+t | 0.1
+f | 0.9
+
+This factor has no variables. value: 0.1
+
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict b to be True in:
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+e |
+-------
+t | 0.95
+f | 0.9
+
+restrict a to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+w |
+-------
+t | 0.8
+f | 0.2
+
+restrict a to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+g |
+-------
+t | 0.4
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out w:
+multiply these factors together (they contain w):
+w |
+-------
+t | 0.8
+f | 0.2
+
+to produce this product:
+w |
+-------
+t | 0.8
+f | 0.2
+
+then sum out w to produce:
+This factor has no variables. value: 1.0
+
+Summing out g:
+multiply these factors together (they contain g):
+g |
+-------
+t | 0.4
+f | 0.6
+
+to produce this product:
+g |
+-------
+t | 0.4
+f | 0.6
+
+then sum out g to produce:
+This factor has no variables. value: 1.0
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+This factor has no variables. value: 0.1
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+e |
+-------
+t | 0.95
+f | 0.9
+
+This factor has no variables. value: 1.0
+
+This factor has no variables. value: 1.0
+
+product is:
+e |
+-------
+t | 0.004750000000000001
+f | 0.0855
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+e |
+-------
+t | 0.052631578947368425
+f | 0.9473684210526315
+
+Therefore P(E | A ^ B) = 0.052631578947368425
+-------------------------------------------------------------------------
+factors used are:
+b |
+-------
+t | 0.1
+f | 0.9
+
+e |
+-------
+t | 0.05
+f | 0.95
+
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+Determining P(E | A):
+
+STEP 1: RESTRICT FACTORS:
+restrict a to be True in:
+a, e, b |
+-------------
+t, t, t | 0.95
+t, t, f | 0.1
+t, f, t | 0.9
+t, f, f | 0.05
+f, t, t | 0.05
+f, t, f | 0.9
+f, f, t | 0.1
+f, f, f | 0.95
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+restrict a to be True in:
+w, a |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+w |
+-------
+t | 0.8
+f | 0.2
+
+restrict a to be True in:
+g, a |
+----------
+t, t | 0.4
+t, f | 0.05
+f, t | 0.6
+f, f | 0.95
+
+g |
+-------
+t | 0.4
+f | 0.6
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out w:
+multiply these factors together (they contain w):
+w |
+-------
+t | 0.8
+f | 0.2
+
+to produce this product:
+w |
+-------
+t | 0.8
+f | 0.2
+
+then sum out w to produce:
+This factor has no variables. value: 1.0
+
+Summing out g:
+multiply these factors together (they contain g):
+g |
+-------
+t | 0.4
+f | 0.6
+
+to produce this product:
+g |
+-------
+t | 0.4
+f | 0.6
+
+then sum out g to produce:
+This factor has no variables. value: 1.0
+
+Summing out b:
+multiply these factors together (they contain b):
+b |
+-------
+t | 0.1
+f | 0.9
+
+e, b |
+----------
+t, t | 0.95
+t, f | 0.1
+f, t | 0.9
+f, f | 0.05
+
+to produce this product:
+b, e |
+----------
+t, t | 0.095
+t, f | 0.09000000000000001
+f, t | 0.09000000000000001
+f, f | 0.045000000000000005
+
+then sum out b to produce:
+e |
+-------
+t | 0.185
+f | 0.135
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+e |
+-------
+t | 0.05
+f | 0.95
+
+This factor has no variables. value: 1.0
+
+This factor has no variables. value: 1.0
+
+e |
+-------
+t | 0.185
+f | 0.135
+
+product is:
+e |
+-------
+t | 0.00925
+f | 0.12825
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+e |
+-------
+t | 0.06727272727272726
+f | 0.9327272727272726
+
+Therefore P(E | A) = 0.06727272727272726
+And we know from before P(E | A ^ B) = 0.052631578947368425
+Therefore P(E | A ^ B) != P(E | A), as required.
+
+
+
+Question 4
+0.5129420618456131
+TESTING
+0.09000755999996801
+TESTING
+0.10650399270355326
+TESTING
+0.040695605961900694
+TESTING
+0.15548642452181005
+TESTING
+0.14203462870383565
+TESTING
+0.07671234496152957
+TESTING
+0.8112781244591328
+TESTING
+0.15717458644737464
+TESTING
+0.16958442967043919
+TESTING
+0 feature: 2 threshold: 2.45
+1 feature: 1 threshold: 3.05
+2 feature: 0 threshold: None
+2 feature: 0 threshold: 7.0
+3 feature: 3 threshold: 2.3499999999999996
+4 feature: 0 threshold: None
+4 feature: 0 threshold: None
+3 feature: 0 threshold: None
+1 feature: 3 threshold: 1.85
+2 feature: 0 threshold: 7.55
+3 feature: 1 threshold: 4.25
+4 feature: 1 threshold: None
+4 feature: 2 threshold: None
+3 feature: 1 threshold: 2.95
+4 feature: 0 threshold: None
+4 feature: 2 threshold: None
+2 feature: 1 threshold: 3.9
+3 feature: 2 threshold: None
+3 feature: 0 threshold: 6.9
+4 feature: 2 threshold: None
+4 feature: 2 threshold: None

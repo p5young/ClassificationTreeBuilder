@@ -1,0 +1,1076 @@
+Question 1b:
+-------------------------------------------------------------------------
+Printing Factor List:
+P(S = s)
+s |
+-------
+t | 0.05
+f | 0.95
+
+P(NA = na)
+na |
+-------
+t | 0.3
+f | 0.7
+
+P(M = m)
+m |
+-------
+t | 0.03571428571428571
+f | 0.9642857142857143
+
+P(B = b | S = s)
+b, s |
+----------
+t, t | 0.6
+t, f | 0.1
+f, t | 0.4
+f, f | 0.9
+
+P(NH = nh | M = m ^ NA = na)
+nh, m, na |
+-------------
+t, t, t | 0.8
+t, t, f | 0.4
+t, f, t | 0.5
+t, f, f | 0.0
+f, t, t | 0.2
+f, t, f | 0.6
+f, f, t | 0.5
+f, f, f | 1.0
+
+P(FH = fh | S = s ^ M = m ^ NH = nh)
+fh, s, m, nh |
+----------------
+t, t, t, t | 0.99
+t, t, t, f | 0.9
+t, t, f, t | 0.75
+t, t, f, f | 0.5
+t, f, t, t | 0.65
+t, f, t, f | 0.4
+t, f, f, t | 0.2
+t, f, f, f | 0.0
+f, t, t, t | 0.01
+f, t, t, f | 0.1
+f, t, f, t | 0.25
+f, t, f, f | 0.5
+f, f, t, t | 0.35
+f, f, t, f | 0.6
+f, f, f, t | 0.8
+f, f, f, f | 1.0
+
+Determining Pr(FH = true) (no evidence given):
+
+STEP 1: RESTRICT FACTORS:
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out b:
+multiply these factors together (they contain b):
+b, s |
+----------
+t, t | 0.6
+t, f | 0.1
+f, t | 0.4
+f, f | 0.9
+
+to produce this product:
+b, s |
+----------
+t, t | 0.6
+t, f | 0.1
+f, t | 0.4
+f, f | 0.9
+
+then sum out b to produce:
+s |
+-------
+t | 1.0
+f | 1.0
+
+Summing out m:
+multiply these factors together (they contain m):
+m |
+-------
+t | 0.03571428571428571
+f | 0.9642857142857143
+
+nh, m, na |
+-------------
+t, t, t | 0.8
+t, t, f | 0.4
+t, f, t | 0.5
+t, f, f | 0.0
+f, t, t | 0.2
+f, t, f | 0.6
+f, f, t | 0.5
+f, f, f | 1.0
+
+fh, s, m, nh |
+----------------
+t, t, t, t | 0.99
+t, t, t, f | 0.9
+t, t, f, t | 0.75
+t, t, f, f | 0.5
+t, f, t, t | 0.65
+t, f, t, f | 0.4
+t, f, f, t | 0.2
+t, f, f, f | 0.0
+f, t, t, t | 0.01
+f, t, t, f | 0.1
+f, t, f, t | 0.25
+f, t, f, f | 0.5
+f, f, t, t | 0.35
+f, f, t, f | 0.6
+f, f, f, t | 0.8
+f, f, f, f | 1.0
+
+to produce this product:
+m, nh, na, fh, s |
+-------------------
+t, t, t, t, t | 0.028285714285714286
+t, t, t, t, f | 0.018571428571428572
+t, t, t, f, t | 0.00028571428571428574
+t, t, t, f, f | 0.009999999999999998
+t, t, f, t, t | 0.014142857142857143
+t, t, f, t, f | 0.009285714285714286
+t, t, f, f, t | 0.00014285714285714287
+t, t, f, f, f | 0.004999999999999999
+t, f, t, t, t | 0.0064285714285714285
+t, f, t, t, f | 0.002857142857142857
+t, f, t, f, t | 0.0007142857142857143
+t, f, t, f, f | 0.004285714285714285
+t, f, f, t, t | 0.019285714285714285
+t, f, f, t, f | 0.00857142857142857
+t, f, f, f, t | 0.0021428571428571425
+t, f, f, f, f | 0.012857142857142855
+f, t, t, t, t | 0.36160714285714285
+f, t, t, t, f | 0.09642857142857143
+f, t, t, f, t | 0.12053571428571429
+f, t, t, f, f | 0.38571428571428573
+f, t, f, t, t | 0.0
+f, t, f, t, f | 0.0
+f, t, f, f, t | 0.0
+f, t, f, f, f | 0.0
+f, f, t, t, t | 0.24107142857142858
+f, f, t, t, f | 0.0
+f, f, t, f, t | 0.24107142857142858
+f, f, t, f, f | 0.48214285714285715
+f, f, f, t, t | 0.48214285714285715
+f, f, f, t, f | 0.0
+f, f, f, f, t | 0.48214285714285715
+f, f, f, f, f | 0.9642857142857143
+
+then sum out m to produce:
+nh, na, fh, s |
+----------------
+t, t, t, t | 0.38989285714285715
+t, t, t, f | 0.115
+t, t, f, t | 0.12082142857142858
+t, t, f, f | 0.39571428571428574
+t, f, t, t | 0.014142857142857143
+t, f, t, f | 0.009285714285714286
+t, f, f, t | 0.00014285714285714287
+t, f, f, f | 0.004999999999999999
+f, t, t, t | 0.2475
+f, t, t, f | 0.002857142857142857
+f, t, f, t | 0.2417857142857143
+f, t, f, f | 0.48642857142857143
+f, f, t, t | 0.5014285714285714
+f, f, t, f | 0.00857142857142857
+f, f, f, t | 0.4842857142857143
+f, f, f, f | 0.9771428571428572
+
+Summing out na:
+multiply these factors together (they contain na):
+na |
+-------
+t | 0.3
+f | 0.7
+
+nh, na, fh, s |
+----------------
+t, t, t, t | 0.38989285714285715
+t, t, t, f | 0.115
+t, t, f, t | 0.12082142857142858
+t, t, f, f | 0.39571428571428574
+t, f, t, t | 0.014142857142857143
+t, f, t, f | 0.009285714285714286
+t, f, f, t | 0.00014285714285714287
+t, f, f, f | 0.004999999999999999
+f, t, t, t | 0.2475
+f, t, t, f | 0.002857142857142857
+f, t, f, t | 0.2417857142857143
+f, t, f, f | 0.48642857142857143
+f, f, t, t | 0.5014285714285714
+f, f, t, f | 0.00857142857142857
+f, f, f, t | 0.4842857142857143
+f, f, f, f | 0.9771428571428572
+
+to produce this product:
+na, nh, fh, s |
+----------------
+t, t, t, t | 0.11696785714285714
+t, t, t, f | 0.0345
+t, t, f, t | 0.036246428571428575
+t, t, f, f | 0.11871428571428572
+t, f, t, t | 0.07425
+t, f, t, f | 0.0008571428571428571
+t, f, f, t | 0.07253571428571429
+t, f, f, f | 0.14592857142857144
+f, t, t, t | 0.009899999999999999
+f, t, t, f | 0.0065
+f, t, f, t | 0.0001
+f, t, f, f | 0.003499999999999999
+f, f, t, t | 0.351
+f, f, t, f | 0.005999999999999998
+f, f, f, t | 0.339
+f, f, f, f | 0.684
+
+then sum out na to produce:
+nh, fh, s |
+-------------
+t, t, t | 0.12686785714285714
+t, t, f | 0.041
+t, f, t | 0.03634642857142858
+t, f, f | 0.12221428571428572
+f, t, t | 0.42524999999999996
+f, t, f | 0.006857142857142855
+f, f, t | 0.41153571428571434
+f, f, f | 0.8299285714285715
+
+Summing out nh:
+multiply these factors together (they contain nh):
+nh, fh, s |
+-------------
+t, t, t | 0.12686785714285714
+t, t, f | 0.041
+t, f, t | 0.03634642857142858
+t, f, f | 0.12221428571428572
+f, t, t | 0.42524999999999996
+f, t, f | 0.006857142857142855
+f, f, t | 0.41153571428571434
+f, f, f | 0.8299285714285715
+
+to produce this product:
+nh, fh, s |
+-------------
+t, t, t | 0.12686785714285714
+t, t, f | 0.041
+t, f, t | 0.03634642857142858
+t, f, f | 0.12221428571428572
+f, t, t | 0.42524999999999996
+f, t, f | 0.006857142857142855
+f, f, t | 0.41153571428571434
+f, f, f | 0.8299285714285715
+
+then sum out nh to produce:
+fh, s |
+----------
+t, t | 0.5521178571428571
+t, f | 0.047857142857142855
+f, t | 0.4478821428571429
+f, f | 0.9521428571428572
+
+Summing out s:
+multiply these factors together (they contain s):
+s |
+-------
+t | 0.05
+f | 0.95
+
+s |
+-------
+t | 1.0
+f | 1.0
+
+fh, s |
+----------
+t, t | 0.5521178571428571
+t, f | 0.047857142857142855
+f, t | 0.4478821428571429
+f, f | 0.9521428571428572
+
+to produce this product:
+s, fh |
+----------
+t, t | 0.027605892857142857
+t, f | 0.022394107142857146
+f, t | 0.04546428571428571
+f, f | 0.9045357142857143
+
+then sum out s to produce:
+fh |
+-------
+t | 0.07307017857142856
+f | 0.9269298214285715
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+fh |
+-------
+t | 0.07307017857142856
+f | 0.9269298214285715
+
+product is:
+fh |
+-------
+t | 0.07307017857142856
+f | 0.9269298214285715
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+fh |
+-------
+t | 0.07307017857142856
+f | 0.9269298214285715
+
+Therefore the probability Fido howls, with no other knowledge, is:
+0.07307017857142856
+
+
+
+Question 1c:
+-------------------------------------------------------------------------
+Printing Factor List:
+P(S = s)
+s |
+-------
+t | 0.05
+f | 0.95
+
+P(NA = na)
+na |
+-------
+t | 0.3
+f | 0.7
+
+P(M = m)
+m |
+-------
+t | 0.03571428571428571
+f | 0.9642857142857143
+
+P(B = b | S = s)
+b, s |
+----------
+t, t | 0.6
+t, f | 0.1
+f, t | 0.4
+f, f | 0.9
+
+P(NH = nh | M = m ^ NA = na)
+nh, m, na |
+-------------
+t, t, t | 0.8
+t, t, f | 0.4
+t, f, t | 0.5
+t, f, f | 0.0
+f, t, t | 0.2
+f, t, f | 0.6
+f, f, t | 0.5
+f, f, f | 1.0
+
+P(FH = fh | S = s ^ M = m ^ NH = nh)
+fh, s, m, nh |
+----------------
+t, t, t, t | 0.99
+t, t, t, f | 0.9
+t, t, f, t | 0.75
+t, t, f, f | 0.5
+t, f, t, t | 0.65
+t, f, t, f | 0.4
+t, f, f, t | 0.2
+t, f, f, f | 0.0
+f, t, t, t | 0.01
+f, t, t, f | 0.1
+f, t, f, t | 0.25
+f, t, f, f | 0.5
+f, f, t, t | 0.35
+f, f, t, f | 0.6
+f, f, f, t | 0.8
+f, f, f, f | 1.0
+
+Determining Pr(S = true | FH = true ^ M = true):
+
+STEP 1: RESTRICT FACTORS:
+restrict m to be True in:
+m |
+-------
+t | 0.03571428571428571
+f | 0.9642857142857143
+
+This factor has no variables. value: 0.03571428571428571
+
+restrict m to be True in:
+nh, m, na |
+-------------
+t, t, t | 0.8
+t, t, f | 0.4
+t, f, t | 0.5
+t, f, f | 0.0
+f, t, t | 0.2
+f, t, f | 0.6
+f, f, t | 0.5
+f, f, f | 1.0
+
+nh, na |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+restrict fh to be True in:
+fh, s, m, nh |
+----------------
+t, t, t, t | 0.99
+t, t, t, f | 0.9
+t, t, f, t | 0.75
+t, t, f, f | 0.5
+t, f, t, t | 0.65
+t, f, t, f | 0.4
+t, f, f, t | 0.2
+t, f, f, f | 0.0
+f, t, t, t | 0.01
+f, t, t, f | 0.1
+f, t, f, t | 0.25
+f, t, f, f | 0.5
+f, f, t, t | 0.35
+f, f, t, f | 0.6
+f, f, f, t | 0.8
+f, f, f, f | 1.0
+
+s, m, nh |
+-------------
+t, t, t | 0.99
+t, t, f | 0.9
+t, f, t | 0.75
+t, f, f | 0.5
+f, t, t | 0.65
+f, t, f | 0.4
+f, f, t | 0.2
+f, f, f | 0.0
+
+restrict m to be True in:
+s, m, nh |
+-------------
+t, t, t | 0.99
+t, t, f | 0.9
+t, f, t | 0.75
+t, f, f | 0.5
+f, t, t | 0.65
+f, t, f | 0.4
+f, f, t | 0.2
+f, f, f | 0.0
+
+s, nh |
+----------
+t, t | 0.99
+t, f | 0.9
+f, t | 0.65
+f, f | 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out b:
+multiply these factors together (they contain b):
+b, s |
+----------
+t, t | 0.6
+t, f | 0.1
+f, t | 0.4
+f, f | 0.9
+
+to produce this product:
+b, s |
+----------
+t, t | 0.6
+t, f | 0.1
+f, t | 0.4
+f, f | 0.9
+
+then sum out b to produce:
+s |
+-------
+t | 1.0
+f | 1.0
+
+Summing out na:
+multiply these factors together (they contain na):
+na |
+-------
+t | 0.3
+f | 0.7
+
+nh, na |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+to produce this product:
+na, nh |
+----------
+t, t | 0.24
+t, f | 0.06
+f, t | 0.27999999999999997
+f, f | 0.42
+
+then sum out na to produce:
+nh |
+-------
+t | 0.52
+f | 0.48
+
+Summing out nh:
+multiply these factors together (they contain nh):
+s, nh |
+----------
+t, t | 0.99
+t, f | 0.9
+f, t | 0.65
+f, f | 0.4
+
+nh |
+-------
+t | 0.52
+f | 0.48
+
+to produce this product:
+nh, s |
+----------
+t, t | 0.5148
+t, f | 0.338
+f, t | 0.432
+f, f | 0.192
+
+then sum out nh to produce:
+s |
+-------
+t | 0.9468000000000001
+f | 0.53
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+s |
+-------
+t | 0.05
+f | 0.95
+
+This factor has no variables. value: 0.03571428571428571
+
+s |
+-------
+t | 1.0
+f | 1.0
+
+s |
+-------
+t | 0.9468000000000001
+f | 0.53
+
+product is:
+s |
+-------
+t | 0.0016907142857142858
+f | 0.017982142857142856
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+s |
+-------
+t | 0.08594147120761021
+f | 0.9140585287923898
+
+Therefore the probability Fido is sick (given howling and full moon) is:
+0.08594147120761021
+
+
+
+Question 1d:
+-------------------------------------------------------------------------
+Printing Factor List:
+P(S = s)
+s |
+-------
+t | 0.05
+f | 0.95
+
+P(NA = na)
+na |
+-------
+t | 0.3
+f | 0.7
+
+P(M = m)
+m |
+-------
+t | 0.03571428571428571
+f | 0.9642857142857143
+
+P(B = b | S = s)
+b, s |
+----------
+t, t | 0.6
+t, f | 0.1
+f, t | 0.4
+f, f | 0.9
+
+P(NH = nh | M = m ^ NA = na)
+nh, m, na |
+-------------
+t, t, t | 0.8
+t, t, f | 0.4
+t, f, t | 0.5
+t, f, f | 0.0
+f, t, t | 0.2
+f, t, f | 0.6
+f, f, t | 0.5
+f, f, f | 1.0
+
+P(FH = fh | S = s ^ M = m ^ NH = nh)
+fh, s, m, nh |
+----------------
+t, t, t, t | 0.99
+t, t, t, f | 0.9
+t, t, f, t | 0.75
+t, t, f, f | 0.5
+t, f, t, t | 0.65
+t, f, t, f | 0.4
+t, f, f, t | 0.2
+t, f, f, f | 0.0
+f, t, t, t | 0.01
+f, t, t, f | 0.1
+f, t, f, t | 0.25
+f, t, f, f | 0.5
+f, f, t, t | 0.35
+f, f, t, f | 0.6
+f, f, f, t | 0.8
+f, f, f, f | 1.0
+
+Determining Pr(S = true | B = true ^ FH = true ^ M = true):
+
+STEP 1: RESTRICT FACTORS:
+restrict m to be True in:
+m |
+-------
+t | 0.03571428571428571
+f | 0.9642857142857143
+
+This factor has no variables. value: 0.03571428571428571
+
+restrict b to be True in:
+b, s |
+----------
+t, t | 0.6
+t, f | 0.1
+f, t | 0.4
+f, f | 0.9
+
+s |
+-------
+t | 0.6
+f | 0.1
+
+restrict m to be True in:
+nh, m, na |
+-------------
+t, t, t | 0.8
+t, t, f | 0.4
+t, f, t | 0.5
+t, f, f | 0.0
+f, t, t | 0.2
+f, t, f | 0.6
+f, f, t | 0.5
+f, f, f | 1.0
+
+nh, na |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+restrict fh to be True in:
+fh, s, m, nh |
+----------------
+t, t, t, t | 0.99
+t, t, t, f | 0.9
+t, t, f, t | 0.75
+t, t, f, f | 0.5
+t, f, t, t | 0.65
+t, f, t, f | 0.4
+t, f, f, t | 0.2
+t, f, f, f | 0.0
+f, t, t, t | 0.01
+f, t, t, f | 0.1
+f, t, f, t | 0.25
+f, t, f, f | 0.5
+f, f, t, t | 0.35
+f, f, t, f | 0.6
+f, f, f, t | 0.8
+f, f, f, f | 1.0
+
+s, m, nh |
+-------------
+t, t, t | 0.99
+t, t, f | 0.9
+t, f, t | 0.75
+t, f, f | 0.5
+f, t, t | 0.65
+f, t, f | 0.4
+f, f, t | 0.2
+f, f, f | 0.0
+
+restrict m to be True in:
+s, m, nh |
+-------------
+t, t, t | 0.99
+t, t, f | 0.9
+t, f, t | 0.75
+t, f, f | 0.5
+f, t, t | 0.65
+f, t, f | 0.4
+f, f, t | 0.2
+f, f, f | 0.0
+
+s, nh |
+----------
+t, t | 0.99
+t, f | 0.9
+f, t | 0.65
+f, f | 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out na:
+multiply these factors together (they contain na):
+na |
+-------
+t | 0.3
+f | 0.7
+
+nh, na |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+to produce this product:
+na, nh |
+----------
+t, t | 0.24
+t, f | 0.06
+f, t | 0.27999999999999997
+f, f | 0.42
+
+then sum out na to produce:
+nh |
+-------
+t | 0.52
+f | 0.48
+
+Summing out nh:
+multiply these factors together (they contain nh):
+s, nh |
+----------
+t, t | 0.99
+t, f | 0.9
+f, t | 0.65
+f, f | 0.4
+
+nh |
+-------
+t | 0.52
+f | 0.48
+
+to produce this product:
+nh, s |
+----------
+t, t | 0.5148
+t, f | 0.338
+f, t | 0.432
+f, f | 0.192
+
+then sum out nh to produce:
+s |
+-------
+t | 0.9468000000000001
+f | 0.53
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+s |
+-------
+t | 0.05
+f | 0.95
+
+This factor has no variables. value: 0.03571428571428571
+
+s |
+-------
+t | 0.6
+f | 0.1
+
+s |
+-------
+t | 0.9468000000000001
+f | 0.53
+
+product is:
+s |
+-------
+t | 0.0010144285714285713
+f | 0.0017982142857142858
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+s |
+-------
+t | 0.3606673946720166
+f | 0.6393326053279833
+
+Therefore the probability Fido is sick (given bowl, howling, and fullmoon) is:
+0.3606673946720166
+
+
+
+Question 1e:
+-------------------------------------------------------------------------
+Printing Factor List:
+P(S = s)
+s |
+-------
+t | 0.05
+f | 0.95
+
+P(NA = na)
+na |
+-------
+t | 0.3
+f | 0.7
+
+P(M = m)
+m |
+-------
+t | 0.03571428571428571
+f | 0.9642857142857143
+
+P(B = b | S = s)
+b, s |
+----------
+t, t | 0.6
+t, f | 0.1
+f, t | 0.4
+f, f | 0.9
+
+P(NH = nh | M = m ^ NA = na)
+nh, m, na |
+-------------
+t, t, t | 0.8
+t, t, f | 0.4
+t, f, t | 0.5
+t, f, f | 0.0
+f, t, t | 0.2
+f, t, f | 0.6
+f, f, t | 0.5
+f, f, f | 1.0
+
+P(FH = fh | S = s ^ M = m ^ NH = nh)
+fh, s, m, nh |
+----------------
+t, t, t, t | 0.99
+t, t, t, f | 0.9
+t, t, f, t | 0.75
+t, t, f, f | 0.5
+t, f, t, t | 0.65
+t, f, t, f | 0.4
+t, f, f, t | 0.2
+t, f, f, f | 0.0
+f, t, t, t | 0.01
+f, t, t, f | 0.1
+f, t, f, t | 0.25
+f, t, f, f | 0.5
+f, f, t, t | 0.35
+f, f, t, f | 0.6
+f, f, f, t | 0.8
+f, f, f, f | 1.0
+
+Determining Pr(S = true | B = true ^ FH = true ^ M = true ^ NA = true):
+
+STEP 1: RESTRICT FACTORS:
+restrict na to be True in:
+na |
+-------
+t | 0.3
+f | 0.7
+
+This factor has no variables. value: 0.3
+
+restrict m to be True in:
+m |
+-------
+t | 0.03571428571428571
+f | 0.9642857142857143
+
+This factor has no variables. value: 0.03571428571428571
+
+restrict b to be True in:
+b, s |
+----------
+t, t | 0.6
+t, f | 0.1
+f, t | 0.4
+f, f | 0.9
+
+s |
+-------
+t | 0.6
+f | 0.1
+
+restrict m to be True in:
+nh, m, na |
+-------------
+t, t, t | 0.8
+t, t, f | 0.4
+t, f, t | 0.5
+t, f, f | 0.0
+f, t, t | 0.2
+f, t, f | 0.6
+f, f, t | 0.5
+f, f, f | 1.0
+
+nh, na |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+restrict na to be True in:
+nh, na |
+----------
+t, t | 0.8
+t, f | 0.4
+f, t | 0.2
+f, f | 0.6
+
+nh |
+-------
+t | 0.8
+f | 0.2
+
+restrict fh to be True in:
+fh, s, m, nh |
+----------------
+t, t, t, t | 0.99
+t, t, t, f | 0.9
+t, t, f, t | 0.75
+t, t, f, f | 0.5
+t, f, t, t | 0.65
+t, f, t, f | 0.4
+t, f, f, t | 0.2
+t, f, f, f | 0.0
+f, t, t, t | 0.01
+f, t, t, f | 0.1
+f, t, f, t | 0.25
+f, t, f, f | 0.5
+f, f, t, t | 0.35
+f, f, t, f | 0.6
+f, f, f, t | 0.8
+f, f, f, f | 1.0
+
+s, m, nh |
+-------------
+t, t, t | 0.99
+t, t, f | 0.9
+t, f, t | 0.75
+t, f, f | 0.5
+f, t, t | 0.65
+f, t, f | 0.4
+f, f, t | 0.2
+f, f, f | 0.0
+
+restrict m to be True in:
+s, m, nh |
+-------------
+t, t, t | 0.99
+t, t, f | 0.9
+t, f, t | 0.75
+t, f, f | 0.5
+f, t, t | 0.65
+f, t, f | 0.4
+f, f, t | 0.2
+f, f, f | 0.0
+
+s, nh |
+----------
+t, t | 0.99
+t, f | 0.9
+f, t | 0.65
+f, f | 0.4
+
+STEP 2: SUM OUT HIDDEN VARIABLES:
+Summing out nh:
+multiply these factors together (they contain nh):
+nh |
+-------
+t | 0.8
+f | 0.2
+
+s, nh |
+----------
+t, t | 0.99
+t, f | 0.9
+f, t | 0.65
+f, f | 0.4
+
+to produce this product:
+nh, s |
+----------
+t, t | 0.792
+t, f | 0.52
+f, t | 0.18000000000000002
+f, f | 0.08000000000000002
+
+then sum out nh to produce:
+s |
+-------
+t | 0.9720000000000001
+f | 0.6000000000000001
+
+STEP 3: MULTIPLY:
+Multiply entire factor list into one result. Printing factor list:
+s |
+-------
+t | 0.05
+f | 0.95
+
+This factor has no variables. value: 0.3
+
+This factor has no variables. value: 0.03571428571428571
+
+s |
+-------
+t | 0.6
+f | 0.1
+
+s |
+-------
+t | 0.9720000000000001
+f | 0.6000000000000001
+
+product is:
+s |
+-------
+t | 0.0003124285714285714
+f | 0.0006107142857142858
+
+STEP 4: NORMALIZE:
+normalize product to get final result:
+s |
+-------
+t | 0.33844011142061275
+f | 0.6615598885793873
+
+Therefore the probability Fido is sick (given bowl, howling, full moon, and neighbour away) is:
+0.33844011142061275
